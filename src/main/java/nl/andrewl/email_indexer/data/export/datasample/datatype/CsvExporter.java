@@ -23,7 +23,8 @@ public class CsvExporter implements TypeExporter {
 			"DATE",
 			"TAGS",
 			"REPLY_TAGS",
-			"REPLY_COUNT"
+			"REPLY_COUNT",
+			"BODY"
 	};
 
 	private CSVPrinter printer;
@@ -47,7 +48,8 @@ public class CsvExporter implements TypeExporter {
 				email.date(),
 				tagRepo.getTags(email.id()),
 				tagRepo.getAllChildTags(email.id()),
-				emailRepo.countRepliesRecursive(email.id()));
+				emailRepo.countRepliesRecursive(email.id()),
+				email.body());
 	}
 
 	@Override
